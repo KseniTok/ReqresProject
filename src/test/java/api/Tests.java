@@ -38,7 +38,7 @@ public class Tests {
                 .then()
                 .statusCode(201)
                 .extract().as(UserCreated.class);
-        Assert.assertEquals(userBeginCreated.getJob(), userCreated.getJob(), "Поля job создаваемого и созданного пользователей различны");
-        Assert.assertEquals(userBeginCreated.getName(), userCreated.getName(), "Поля name создаваемого и созданного пользователей различны");
+        Assert.assertEquals(userBeginCreated.getJob(), userCreated.getJob(), "Ожидали значение поле job: '" + userBeginCreated.getJob() + "', получили: '" + userCreated.getJob());
+        Assert.assertEquals(userBeginCreated.getName(), userCreated.getName(), "Ожидали значение поле name: '" + userBeginCreated.getName() + "', получили: '" + userCreated.getName());
     }
 }

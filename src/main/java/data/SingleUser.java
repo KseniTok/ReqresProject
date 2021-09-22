@@ -61,4 +61,12 @@ public class SingleUser {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    public void asserFieldsNotNull() {
+        Assert.assertNotNull(id, "Поле id у пользователя " + first_name + " пустое");
+        Assert.assertNotNull(email, "Поле email у пользователя " + id + " пустое");
+        Assert.assertNotNull(first_name, "Поле first_name у пользователя " + id + " пустое");
+        Assert.assertNotNull(last_name, "Поле last_name у пользователя " + id + " пустое");
+        Assert.assertNotNull(avatar, "Поле avatar у пользователя " + id + " пустое");
+    }
 }
