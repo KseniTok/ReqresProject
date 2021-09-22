@@ -21,12 +21,7 @@ public class Tests {
                 .then()
                 .statusCode(200)
                 .extract().as(ListUsers.class);
-        Assert.assertNotNull(listUsers.getPage());
-        Assert.assertNotNull(listUsers.getPer_page());
-        Assert.assertNotNull(listUsers.getTotal());
-        Assert.assertNotNull(listUsers.getTotal_pages());
-        Assert.assertNotNull(listUsers.getData());
-        Assert.assertNotNull(listUsers.getSupport());
+        listUsers.assertFieldsNotNull();
     }
 
     /*Второй – создать пользователя (POST https://reqres.in/api/users) с данными из примера
@@ -34,16 +29,16 @@ public class Tests {
 и проверить, что в ответе те же самые значения из запроса.*/
     @Test
     public void secondTest() {
-        User user1 = new User("morpheus", "leader");
-        User user2 = given()
+        User userBeginCreated = new User("morpheus", "leader");
+        User userCreated = given()
                 .spec(Specifications.specRequest())
-                .body(user1)
+                .body(userBeginCreated)
                 .when()
                 .post("/api/users")
                 .then()
                 .statusCode(201)
                 .extract().as(UserCreated.class);
-        Assert.assertEquals(user1.getJob(), user2.getJob());
-        Assert.assertEquals(user1.getName(), user2.getName());
+        Assert.assertEquals(userBeginCreated.getJob(), userCreated.getJob());
+        Assert.assertEquals(userBeginCreated.getName(), userCreated.getName());
     }
 }

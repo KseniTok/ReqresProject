@@ -1,5 +1,7 @@
 package data;
 
+import org.testng.Assert;
+
 public class SingleUser {
     private Integer id;
     private String email;

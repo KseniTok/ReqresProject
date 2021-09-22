@@ -1,5 +1,7 @@
 package data;
 
+import org.testng.Assert;
+
 import java.util.List;
 
 public class ListUsers {
@@ -69,5 +71,22 @@ public class ListUsers {
 
     public void setSupport(Support support) {
         this.support = support;
+    }
+
+    public void assertFieldsNotNull() {
+        for (SingleUser user : data) {
+            Assert.assertNotNull(user.getId());
+            Assert.assertNotNull(user.getEmail());
+            Assert.assertNotNull(user.getFirst_name());
+            Assert.assertNotNull(user.getLast_name());
+            Assert.assertNotNull(user.getAvatar());
+        }
+        Assert.assertNotNull(page);
+        Assert.assertNotNull(per_page);
+        Assert.assertNotNull(total);
+        Assert.assertNotNull(total_pages);
+        Assert.assertNotNull(support.getText());
+        Assert.assertNotNull(support.getUrl());
+
     }
 }
