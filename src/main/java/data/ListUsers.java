@@ -75,18 +75,18 @@ public class ListUsers {
 
     public void assertFieldsNotNull() {
         for (SingleUser user : data) {
-            Assert.assertNotNull(user.getId());
-            Assert.assertNotNull(user.getEmail());
-            Assert.assertNotNull(user.getFirst_name());
-            Assert.assertNotNull(user.getLast_name());
-            Assert.assertNotNull(user.getAvatar());
+            Assert.assertNotNull(user.getId(), "Поле id у пользователя " + user.getFirst_name() + " пустое");
+            Assert.assertNotNull(user.getEmail(), "Поле email у пользователя " + user.getId() + " пустое");
+            Assert.assertNotNull(user.getFirst_name(), "Поле first_name у пользователя " + user.getId() + " пустое");
+            Assert.assertNotNull(user.getLast_name(), "Поле last_name у пользователя " + user.getId() + " пустое");
+            Assert.assertNotNull(user.getAvatar(), "Поле avatar у пользователя " + user.getId() + " пустое");
         }
-        Assert.assertNotNull(page);
-        Assert.assertNotNull(per_page);
-        Assert.assertNotNull(total);
-        Assert.assertNotNull(total_pages);
-        Assert.assertNotNull(support.getText());
-        Assert.assertNotNull(support.getUrl());
+        Assert.assertNotNull(page, "Поле page пустое");
+        Assert.assertNotNull(per_page, "Поле per_page пустое");
+        Assert.assertNotNull(total, "Поле total пустое");
+        Assert.assertNotNull(total_pages, "Поле total_pages пустое");
+        Assert.assertNotNull(support.getText(), "Поле support text пустое");
+        Assert.assertNotNull(support.getUrl(), "Поле support url пустое");
 
     }
 }
