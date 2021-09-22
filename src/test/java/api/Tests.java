@@ -4,6 +4,7 @@ import data.ListUsers;
 import data.User;
 import data.UserCreated;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -28,8 +29,9 @@ public class Tests {
 на сайте: подготовить тело запроса, отправить запрос с телом, замапить ответ на объект
 и проверить, что в ответе те же самые значения из запроса.*/
     @Test
-    public void secondTest() {
-        User userBeginCreated = new User("morpheus", "leader");
+    @Parameters({"name", "job"})
+    public void secondTest(String name, String job) {
+        User userBeginCreated = new User(name, job);
         User userCreated = given()
                 .spec(Specifications.specRequest())
                 .body(userBeginCreated)
